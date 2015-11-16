@@ -1,0 +1,15 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET         /                                       controllers.Application.index
+
+# Map static resources from the /public folder to the /assets URL path
+GET         /assets/*file                           controllers.Assets.at(path="/public", file)
+
+GET         /callback                               @org.pac4j.play.CallbackController.callback()
+GET         /facebook/logout                        @org.pac4j.play.ApplicationLogoutController.logout()
+GET         /facebook/index.html                    controllers.Application.facebookIndex()
+GET         /facebook/rating                        controllers.Application.rating()
+POST        /facebook/game/:opponent/:result        controllers.Application.addGame(opponent: String, result: Int)
